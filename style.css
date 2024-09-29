@@ -1,0 +1,202 @@
+:root {
+    /* Colors */
+    --primary: hsl(180, 29%, 50%);
+    --background: hsl(180, 52%, 96%);
+    --filter-tablets: hsl(180, 31%, 95%);
+    --dark-grayish-cyan: hsl(180, 8%, 52%);
+    --featured: hsl(180, 14%, 20%);
+    --jobListing: white;
+    
+    /* Font Families */
+    --main-font: "League Spartan", sans-serif;
+
+
+
+}
+
+body {
+    background-color: var(--background);
+    font-family: var(--main-font);
+    font-weight: 600;
+}
+
+#banner {
+    width: 120%;
+    height: 155px;
+    background-color: var(--primary);
+    margin-top: -8px;
+    margin-left: -8px;
+    padding: 0;
+    overflow: hidden;
+    margin-bottom: 80px;
+}
+
+#bannerImage {
+    width: 100%;
+}
+
+#filters {
+    background-color: var(--jobListing);
+    padding: 10px 20px;
+    margin: -75px 120px 20px 120px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    box-shadow: 0px 2px 40px -10px var(--primary);
+    border-radius: 5px;
+}
+
+.filterItem {
+    display: inline-flex;
+    align-items: center;
+    background-color: var(--filter-tablets);
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-weight: 700;
+    color: var(--primary);
+}
+
+.removeIcon {
+    margin-left: 8px;
+    cursor: pointer;
+    color: var(--primary);
+    font-weight: bold;
+}
+
+.removeIcon:hover {
+    color: var(--dark-grayish-cyan);
+}
+
+/* Clear button styling */
+#clearButton {
+    margin-left: auto;
+    color: var(--featured);
+    font-weight: 700;
+    cursor: pointer;
+}
+
+#clearButton:hover {
+    text-decoration: underline;
+    color: var(--primary);
+}
+
+.jobListingsContainer {
+    display: grid;
+    gap: 40px;
+    grid-template-columns: 1fr;
+}
+
+.jobListing {
+    background-color: var(--jobListing);
+    box-shadow: 0px 2px 40px -10px var(--primary);
+    border-radius: 5px;
+    padding: 80px;
+    padding-top: 10px;
+    padding-left: 30px;
+    margin: 20px 120px;
+    display: block;
+}
+
+.jobListing:hover {
+    border-left: 5px solid var(--primary);
+    cursor: pointer;
+}
+
+
+.logo {
+    float: left;
+    margin-right: 20px;
+    margin-top: 20px;
+    width: 70px;
+}
+
+.logo:hover {
+    width: 80px;
+    cursor: pointer;
+}
+
+.jobDetails {
+    margin-right: 160px;
+}
+
+li {
+    float: left;
+}
+
+.header {
+    list-style-type: none;
+}
+
+.header li {
+    margin-right: 10px;
+}
+
+.categories {
+    list-style-type: none;
+    float: right;
+    margin-top: -30px;
+    margin-right: -180px;
+}
+
+.categories li {
+    margin-right: 15px;
+    color: var(--primary);
+    background-color: var(--filter-tablets);
+    padding: 5px 5px;
+    font-size: 13px;
+    border-radius: 5px;
+    font-weight: 700;
+}
+
+.categories li:hover {
+    background-color: var(--primary);
+    color: var(--filter-tablets);
+    cursor: pointer;
+}
+
+.footer {
+    margin-left: 40px;
+    margin-top: -40px;
+    float: none;
+}
+
+.footer li {
+    list-style-type: square;
+    margin-right: 30px;
+    color: var(--dark-grayish-cyan);
+    font-size: small;
+}
+
+.position {
+    padding-top: 10px;
+    color: var(--featured);
+    font-weight: 700;
+}
+
+.position:hover {
+    color: var(--primary);
+}
+
+.company {
+    color: var(--primary);
+    font-weight: 700;
+    font-size: 15px;
+}
+
+.new {
+    color: var(--jobListing);
+    background-color: var(--primary);
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 13px;
+    margin-top: -3px;
+}
+
+.featured {
+    color: var(--jobListing);
+    background-color: var(--featured);
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 13px;
+    margin-top: -3px;
+}
