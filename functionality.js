@@ -122,8 +122,8 @@ document.addEventListener('DOMContentLoaded', () => {
       // Append all elements to the jobDetailsDiv
       jobDetailsDiv.appendChild(headerUl);
       jobDetailsDiv.appendChild(positionP);
-      jobDetailsDiv.appendChild(categoriesUl);
       jobDetailsDiv.appendChild(footerUl);
+      jobDetailsDiv.appendChild(categoriesUl);
   
       // Append logo and jobDetailsDiv to jobListing div
       jobDiv.appendChild(logoImg);

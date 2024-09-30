@@ -10,8 +10,6 @@
     /* Font Families */
     --main-font: "League Spartan", sans-serif;
 
-
-
 }
 
 body {
@@ -101,7 +99,7 @@ body {
     background-color: var(--jobListing);
     box-shadow: 0px 2px 40px -10px var(--primary);
     border-radius: 5px;
-    padding: 80px;
+    padding: 40px;
     padding-top: 10px;
     padding-left: 30px;
     margin: 20px 120px;
@@ -167,7 +165,6 @@ li {
 
 .footer {
     margin-left: 40px;
-    margin-top: -40px;
     float: none;
 }
 
@@ -179,7 +176,7 @@ li {
 }
 
 .position {
-    padding-top: 10px;
+    padding-top: 20px;
     color: var(--featured);
     font-weight: 700;
 }
@@ -210,4 +207,82 @@ li {
     border-radius: 20px;
     font-size: 13px;
     margin-top: -3px;
+}
+
+@media only screen and (max-width: 982px) {
+    .jobListing {
+        display: block;
+        margin: 30px 10px;
+        padding: 15px;
+        padding-bottom: 120px;
+    }
+
+    /* Adjust filter container to wrap */
+    #filters {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: left;
+        margin-left: 10px;
+        width: 300px;
+        
+    }
+
+    .filterItem {
+        font-size: 16px;
+        padding: 0px 10px;
+    }
+
+    .removeIcon {
+        font-size: 25px;
+    }
+
+    /* Adjust job listing items */
+    .jobDetails {
+        flex-direction: column;
+        align-items: flex-start;
+        width: 300px;
+    }
+
+    .header {
+        margin-top: 10px;
+        text-align: left;
+        flex-wrap: wrap;
+    }
+
+    .footer {
+        flex-wrap: none;
+        width: 300px;
+    }
+
+    .categories {
+        margin: 5px;
+        margin-top: 10px;
+        padding: 8px;
+        font-size: 13px;
+        border-top: 1px solid var(--featured);
+        width: 250px;
+    }
+
+    .categories li {
+        margin: 5px;
+    }
+
+    .logo {
+        width: 50px;
+        float: left;
+    }
+
+    .logo:hover {
+        width: 52px;
+    }
+
+    #bannerImage {
+        width: 1000px;
+    }
+
+    #banner {
+        height: 100px;
+    }
+
+
 }
