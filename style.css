@@ -40,7 +40,10 @@ body {
 #filters {
     background-color: var(--jobListing);
     padding: 10px 20px;
-    margin: -75px 120px 20px 120px;
+    margin-top: -75px;
+    margin-bottom: 20px;
+    margin-right: 120px;
+    margin-left: 120px;
     display: none;
     flex-wrap: wrap;
     gap: 10px;
@@ -55,23 +58,27 @@ body {
 .filterItem {
     display: inline-flex;
     align-items: center;
-    background-color: var(--filter-tablets);
-    padding: 8px 10px;
+    background-color: var(--primary);
     border-radius: 5px;
+    padding: 0px;
     margin: 0px 5px;
     position: relative;
     font-weight: 700;
     color: var(--primary);
 }
 
+.filterText {
+    background-color: var(--filter-tablets);
+    padding: 0px 10px;
+}
+
 .removeIcon {
     display: inline-block;
     color: var(--primary);
     border-radius: 100%;
-    margin-left: 10px;
+    padding: 0px 10px;
     cursor: pointer;
     font-weight: bold;
-    font-size: 30px;
     transition: background-color 0.3s ease; /* Smooth transition on hover */
 }
 
@@ -216,28 +223,14 @@ body {
         overflow: hidden;
     }
 
+    #filters {
+        margin-right: 10px;
+        margin-left: 10px;
+    }
+
     .jobListing {
         display: block;
         margin: 40px 10px;
-    }
-
-    /* Adjust filter container to wrap */
-    #filters {
-        display: none;
-        flex-wrap: wrap;
-        justify-content: left;
-        justify-self: center;
-        width: 60%;
-        
-    }
-
-    .filterItem {
-        font-size: 16px;
-        padding: 0px 10px;
-    }
-
-    .removeIcon {
-        font-size: 25px;
     }
 
     /* Adjust job listing items */
@@ -288,13 +281,18 @@ body {
 
 }
 
-@media screen and (max-width: 365px) {
+@media screen and (max-width: 375px) {
     .jobListing {
         width: 325px;
     }
 
     #bannerImage {
         width: 1000px;
+    }
+
+    #filters {
+        margin: 10px 20px;
+        margin-top: -75px;
     }
 }
 
@@ -308,31 +306,17 @@ body {
         overflow: hidden;
     }
 
+    #filters {
+        margin-right: 5px;
+        margin-left: 5px;
+        margin-top: -71px;
+    }
+
     .jobListing {
         display: block;
         margin: 40px 5px;
         padding: 10px;
         width: 290px;
-    }
-
-    /* Adjust filter container to wrap */
-    #filters {
-        display: none;
-        flex-wrap: wrap;
-        justify-content: left;
-        align-content: center;
-        justify-self: center;
-        width: 60%;
-        margin-left: 105px;
-    }
-
-    .filterItem {
-        font-size: 12px;
-        padding: 0px 8px;
-    }
-
-    .removeIcon {
-        font-size: 25px;
     }
 
     .jobDetails {
@@ -409,26 +393,6 @@ body {
         width: 210px;
     }
 
-    /* Adjust filter container to wrap */
-    #filters {
-        display: none;
-        flex-wrap: wrap;
-        justify-content: left;
-        align-content: center;
-        justify-self: center;
-        width: 50%;
-        margin-left: 60px;
-    }
-
-    .filterItem {
-        font-size: 11px;
-        padding: 0px 6px;
-    }
-
-    .removeIcon {
-        font-size: 18px;
-    }
-
     #bannerImage {
         width: 250%;
     }
@@ -440,6 +404,10 @@ body {
 
     #clearButton {
         font-size: 12px;
+    }
+
+    #filters {
+        margin-top: -70px;
     }
 
 }

@@ -170,13 +170,22 @@ document.addEventListener('DOMContentLoaded', () => {
         selectedFilters.forEach(filter => {
             const filterDiv = document.createElement('div');
             filterDiv.classList.add('filterItem');
-            filterDiv.textContent = filter;
 
-            const removeIcon = document.createElement('span');
+            const filterText = document.createElement('div');
+            filterText.classList.add('filterText');
+            const filterTextP = document.createElement('p');
+            filterTextP.innerText = filter;
+            filterText.appendChild(filterTextP);
+            
+
+            const removeIcon = document.createElement('div');
             removeIcon.classList.add('removeIcon');
-            removeIcon.innerHTML = '&times;'; // Cross icon to remove filter
-            removeIcon.addEventListener('click', () => removeFilter(filter));
+            const removeIconImage = document.createElement('img');
+            removeIconImage.src = "./images/icon-remove.svg"
+            removeIconImage.addEventListener('click', () => removeFilter(filter));
+            removeIcon.appendChild(removeIconImage);
 
+            filterDiv.appendChild(filterText);
             filterDiv.appendChild(removeIcon);
             filterListContainer.appendChild(filterDiv);
         });
@@ -190,6 +199,7 @@ document.addEventListener('DOMContentLoaded', () => {
             filterListContainer.style.display = 'none'; // Hide the entire filter container
         }
         
+        applyHoverEffect();
         
     }
 
@@ -206,6 +216,19 @@ document.addEventListener('DOMContentLoaded', () => {
         updateFilters();
         filterJobListings();
     });
+
+    function applyHoverEffect() {
+        const removeIcons = document.querySelectorAll('.removeIcon');
+        removeIcons.forEach(icon => {
+            icon.addEventListener('mouseover', () => {
+                icon.closest('.filterItem').style.backgroundColor = 'var(--featured)';
+            });
+
+            icon.addEventListener('mouseout', () => {
+                icon.closest('.filterItem').style.backgroundColor = 'var(--primary)';
+            });
+        });
+    }
 
   });
   
