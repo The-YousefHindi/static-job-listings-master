@@ -26,108 +26,115 @@ document.addEventListener('DOMContentLoaded', () => {
       // Create main jobListing div
       const jobDiv = document.createElement('div');
       jobDiv.classList.add('jobListing');
-  
+      
+      const logoDiv = document.createElement('div');
+      logoDiv.classList.add('logo');
       // Logo image
       const logoImg = document.createElement('img');
-      logoImg.classList.add('logo');
+      logoImg.classList.add("logoImage");
       logoImg.src = job.logo;
       logoImg.alt = `${job.company} Logo`;
+
+      logoDiv.appendChild(logoImg);
   
       // Job details div
       const jobDetailsDiv = document.createElement('div');
       jobDetailsDiv.classList.add('jobDetails');
   
       // Header (Company, New, Featured)
-      const headerUl = document.createElement('ul');
-      headerUl.classList.add('header');
+      const header = document.createElement('div');
+      header.classList.add('header');
   
-      const companyLi = document.createElement('li');
-      companyLi.classList.add('company');
-      companyLi.textContent = job.company;
+      const company = document.createElement('p');
+      company.classList.add('company');
+      company.textContent = job.company;
   
-      const newLi = document.createElement('li');
-      newLi.classList.add('new');
-      if (job.new) newLi.textContent = "NEW!"; // Only add NEW if true
+      const newStatus = document.createElement('p');
+      newStatus.classList.add('new');
+      if (job.new) newStatus.textContent = "NEW!"; // Only add NEW if true
   
-      const featuredLi = document.createElement('li');
-      featuredLi.classList.add('featured');
-      if (job.featured) featuredLi.textContent = "FEATURED"; // Only add FEATURED if true
+      const featured = document.createElement('p');
+      featured.classList.add('featured');
+      if (job.featured) featured.textContent = "FEATURED"; // Only add FEATURED if true
   
-      headerUl.appendChild(companyLi);
-      if (job.new) headerUl.appendChild(newLi); // Add new only if true
-      if (job.featured) headerUl.appendChild(featuredLi); // Add featured only if true
+      header.appendChild(company);
+      if (job.new) header.appendChild(newStatus); // Add new only if true
+      if (job.featured) header.appendChild(featured); // Add featured only if true
   
       // Position
+      const position = document.createElement('div');
+      position.classList.add('position');
+
       const positionP = document.createElement('p');
-      positionP.classList.add('position');
-      positionP.innerHTML = `<br>${job.position}`;
+      positionP.innerHTML = `${job.position}`;
+      position.appendChild(positionP);
   
       // Categories (Role, Level, Languages, Tools)
-      const categoriesUl = document.createElement('ul');
-      categoriesUl.classList.add('categories');
+      const categories = document.createElement('div');
+      categories.classList.add('categories');
   
-      const roleLi = document.createElement('li');
-      roleLi.classList.add('role');
-      roleLi.textContent = job.role;
-      roleLi.addEventListener('click', () => handleFilterClick(job.role));
+      const role = document.createElement('p');
+      role.classList.add('role');
+      role.textContent = job.role;
+      role.addEventListener('click', () => handleFilterClick(job.role));
   
-      const levelLi = document.createElement('li');
-      levelLi.classList.add('level');
-      levelLi.textContent = job.level;
-      levelLi.addEventListener('click', () => handleFilterClick(job.level));
+      const level = document.createElement('p');
+      level.classList.add('level');
+      level.textContent = job.level;
+      level.addEventListener('click', () => handleFilterClick(job.level));
 
-      categoriesUl.appendChild(roleLi);
-      categoriesUl.appendChild(levelLi);
+      categories.appendChild(role);
+      categories.appendChild(level);
   
       // Append languages
       job.languages.forEach(language => {
-        const languageLi = document.createElement('li');
-        languageLi.classList.add('languages');
-        languageLi.textContent = language;
-        languageLi.addEventListener('click', () => handleFilterClick(language));
-        categoriesUl.appendChild(languageLi);
+        const languageP = document.createElement('p');
+        languageP.classList.add('languages');
+        languageP.textContent = language;
+        languageP.addEventListener('click', () => handleFilterClick(language));
+        categories.appendChild(languageP);
       });
   
       // Append tools
       job.tools.forEach(tool => {
-        const toolLi = document.createElement('li');
-        toolLi.classList.add('tools');
-        toolLi.textContent = tool;
-        toolLi.addEventListener('click', () => handleFilterClick(tool));
-        categoriesUl.appendChild(toolLi);
+        const toolP = document.createElement('p');
+        toolP.classList.add('tools');
+        toolP.textContent = tool;
+        toolP.addEventListener('click', () => handleFilterClick(tool));
+        categories.appendChild(toolP);
       });
   
       
   
       // Footer (PostedAt, Contract, Location)
-      const footerUl = document.createElement('ul');
-      footerUl.classList.add('footer');
+      const footer = document.createElement('div');
+      footer.classList.add('footer');
   
-      const postedAtLi = document.createElement('li');
-      postedAtLi.classList.add('postedAt');
-      postedAtLi.textContent = job.postedAt;
+      const postedAt = document.createElement('p');
+      postedAt.classList.add('postedAt');
+      postedAt.textContent = job.postedAt;
   
-      const contractLi = document.createElement('li');
-      contractLi.classList.add('contract');
-      contractLi.textContent = job.contract;
+      const contract = document.createElement('p');
+      contract.classList.add('contract');
+      contract.textContent = job.contract;
   
-      const locationLi = document.createElement('li');
-      locationLi.classList.add('location');
-      locationLi.textContent = job.location;
+      const location = document.createElement('p');
+      location.classList.add('location');
+      location.textContent = job.location;
   
-      footerUl.appendChild(postedAtLi);
-      footerUl.appendChild(contractLi);
-      footerUl.appendChild(locationLi);
+      footer.appendChild(postedAt);
+      footer.appendChild(contract);
+      footer.appendChild(location);
   
       // Append all elements to the jobDetailsDiv
-      jobDetailsDiv.appendChild(headerUl);
-      jobDetailsDiv.appendChild(positionP);
-      jobDetailsDiv.appendChild(footerUl);
-      jobDetailsDiv.appendChild(categoriesUl);
+      jobDetailsDiv.appendChild(header);
+      jobDetailsDiv.appendChild(position);
+      jobDetailsDiv.appendChild(footer);
   
       // Append logo and jobDetailsDiv to jobListing div
-      jobDiv.appendChild(logoImg);
+      jobDiv.appendChild(logoDiv);
       jobDiv.appendChild(jobDetailsDiv);
+      jobDiv.appendChild(categories);
   
       // Append the jobListing to the main jobListingsContainer
       jobListingsContainer.appendChild(jobDiv);
